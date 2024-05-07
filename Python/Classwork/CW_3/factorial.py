@@ -10,4 +10,4 @@ def factorial(num):
 
 
 # Own code.
-print(factorial(-1))
+print(factorial(3))
