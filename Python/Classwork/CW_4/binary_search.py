@@ -1,5 +1,8 @@
 # binary_search.py
+# 
 # Recursive version of binary search algorithm.
+# The function returns an index of searched item.
+# 
 
 
 # Own exception.
@@ -19,13 +22,13 @@ def binary_search(arr, val):
             raise Catapult
     else:                       # Recursive case.
         if guess > val:
-            return binary_search(arr[:len(arr)//2], val)  # 1st recursive case.
+            return binary_search(arr[:len(arr)//2], val)                    # 1st recursive case.
         else:
             return (len(arr) // 2) + binary_search(arr[len(arr)//2:], val)  # 2nd recursive case.
 
 
 # Main code.
 try:
-    print(binary_search([1, 2, 3, 6, 7, 9, 10, 46, 54], 55))
+    print(binary_search([1, 2, 3, 6, 7, 9, 10, 46, 54], 7))
 except Catapult:
     print(None)
