@@ -1,7 +1,7 @@
 # binary_search.py
 # 
 # Recursive version of binary search algorithm.
-# The function returns an index of searched item.
+# The function returns an index of searched value.
 # 
 
 
@@ -24,7 +24,7 @@ def binary_search(arr, val):
         if guess > val:
             return binary_search(arr[:len(arr)//2], val)                    # 1st recursive case.
         else:
-            return (len(arr) // 2) + binary_search(arr[len(arr)//2:], val)  # 2nd recursive case.
+            return (len(arr)//2) + binary_search(arr[len(arr)//2:], val)  # 2nd recursive case.
 
 
 # Main code.
