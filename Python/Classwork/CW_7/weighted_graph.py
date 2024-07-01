@@ -81,5 +81,5 @@ graph["a"]["finish"] = 1
 graph["b"]["a"] = 3
 graph["b"]["finish"] = 5
 
-parents, costs = dijkstra_algorithm(graph, NODES, "start")
-display_results(parents, costs, "start", "finish")
+parents, costs = dijkstra_algorithm(graph, NODES, start_node="start")
+display_results(parents, costs, start_node="start", finish_node="finish")
