@@ -41,6 +41,7 @@ def display_results(total_cost, processed):
     print(" -> ".join(processed), "\n")
 
 
+# First example.
 NODES = ("start", "a", "b", "c")
 graph = {}
 for node in NODES:
@@ -70,7 +71,7 @@ total_cost, processed = greedy_algorythm(start_node="start")
 display_results(total_cost, processed)
 
 
-# Second example
+# Second example.
 NODES = ("start", "a", "b", "c", "d")
 graph = {}
 for node in NODES:
