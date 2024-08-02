@@ -24,10 +24,7 @@ void search(int k, vector<int> & subset)
     if (k >= N + 1)
     {
         // Process the subset.
-        if (subset.size() > 0)
-            display(subset);
-        else
-            cout << "{<emtpy set>}\n";
+        display(subset);
     }
     else
     {
@@ -43,8 +40,13 @@ void search(int k, vector<int> & subset)
 
 void display(const vector<int> & subset)
 {
-    cout << "{";
-    for (const auto & item: subset)
-        cout << item << ", ";
-    cout << "\b\b}\n";
+    if (subset.size() > 0)
+    {
+        cout << "{";
+        for (const auto & item: subset)
+            cout << item << ", ";
+        cout << "\b\b}\n";        
+    }
+    else
+        cout << "{<emtpy set>}\n";
 }
