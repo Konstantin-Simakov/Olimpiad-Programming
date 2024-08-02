@@ -1,5 +1,5 @@
 // subset_generation.cpp
-// Recursive algorithm of number subset generation.
+// Recursive algorithm for generating subsets.
 #include <iostream>
 #include <vector>
 using namespace std;
