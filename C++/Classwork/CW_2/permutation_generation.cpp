@@ -34,7 +34,7 @@ void search(vector<int> & permutation, bool chosen[])
     {
         for (int i = 1; i <= N; ++i)
         {
-            if (chosen[i])        // i in a permutation,
+            if (chosen[i])        // i is already in a permutation,
                 continue;         // so skip it.
             else
             {
