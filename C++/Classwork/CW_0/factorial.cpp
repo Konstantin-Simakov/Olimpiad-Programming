@@ -5,6 +5,7 @@ using namespace std;
 
 long long factorial(int num);
 long long factorial_2(int num);
+long long factorial_3(int num);
 
 int main(void)
 {
@@ -14,7 +15,8 @@ int main(void)
 
     cout << num << "! = " << factorial(num) << endl;
     cout << num << "! = " << factorial_2(num) << endl;
-
+    cout << num << "! = " << factorial_3(num) << endl;
+    
     return 0;
 }
 
@@ -34,4 +36,12 @@ long long factorial_2(int num)
         res *= num--;
 
     return res;
+}
+
+long long factorial_3(int num)
+{
+    if (num >= 2)
+        return num * factorial_3(num - 1);
+    else
+        return 1;
 }
