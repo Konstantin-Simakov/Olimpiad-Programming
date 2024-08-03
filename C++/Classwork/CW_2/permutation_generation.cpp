@@ -34,11 +34,11 @@ void search(vector<int> & permutation, bool chosen[])
     {
         for (int i = 1; i <= N; ++i)
         {
-            if (chosen[i])
-                continue;
+            if (chosen[i])        // i in a permutation,
+                continue;         // so skip it.
             else
             {
-                // i is in a permutation.
+                // Add i in a permutation.
                 chosen[i] = true;
                 permutation.push_back(i);
                 search(permutation, chosen);
