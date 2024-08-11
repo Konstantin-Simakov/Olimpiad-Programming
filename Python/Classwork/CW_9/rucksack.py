@@ -1,7 +1,9 @@
 # rucksack.py
 # Solve the rucksack problem using dynamic programming method.
 
-MAX_WEIGHT = 4      # The max capacity of the rucksack in kg; only integer!
+# The max capacity of the rucksack in kg;
+# the number has to be an integer that is more than zero.
+MAX_WEIGHT = 4                       
 
 
 def get_weights_costs(stuff):
