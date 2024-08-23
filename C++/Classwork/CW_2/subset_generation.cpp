@@ -21,7 +21,7 @@ int main(void)
 
 void search(int k, vector<int> & subset)
 {
-    if (k >= N + 1)
+    if (k > N)
     {
         // Process the subset.
         display(subset);
