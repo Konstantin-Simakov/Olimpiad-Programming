@@ -1,6 +1,7 @@
 // bitwise_operations.cpp
 // Demonstrates some features of bitwise operations.
 #include <iostream>
+#include <cstdlib>
 #include <climits>
 using namespace std;
 
@@ -8,26 +9,43 @@ void dec_to_bin(int num);
 
 int main(void)
 {
+    // Program preparation.
+    const int K = 0;
+    string filler;
+    if (K <= 0)
+    {
+        cout << "Entered incorrect bitwise shift (K <= 0). Program terminating.\n";
+        exit(EXIT_FAILURE);
+    }
+    else if (K == 1)
+        filler = "st";
+    else if (K == 2)
+        filler = "nd";
+    else if (K == 3)
+        filler = "rd";
+    else
+        filler = "th";
+
+    // Source data input.
     int num;
     cout << "Enter an integer: ";
     cin >> num;
-
     cout << "Source number:\n";
     dec_to_bin(num);
     
-    cout << "\n\n(Bit numbering starts from zero, as for arrays.)\n\n";
+    cout << "\n\n(Bit numbering starts from zero, as for arrays, but from right to left.)\n\n";
 
+    // Test bitwise operaions and functions.
     int res;
-    int k = 2;
     cout << "1. Simple cases.\n";
-    cout << "Set the 2nd bit to 1:\n";
-    res = num | (1 << k);
+    cout << "Set the " << K << filler << " bit to 1:\n";
+    res = num | (1 << K);
     dec_to_bin(res);
-    cout << "\nReset the 2nd bit to 0:\n";
-    res = num & ~(1 << k);
+    cout << "\nReset the " << K << filler << " bit to 0:\n";
+    res = num & ~(1 << K);
     dec_to_bin(res);
-    cout << "\nInvert the 2nd bit:\n"; 
-    res = num ^ (1 << k);
+    cout << "\nInvert the " << K << filler << " bit:\n"; 
+    res = num ^ (1 << K);
     dec_to_bin(res);
 
     cout << "\n\n2. More difficult cases.\n";
