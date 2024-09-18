@@ -38,10 +38,10 @@ def get_longest_substring(words, table):
     substring = ""
     while length > 0:                                                   # Going in reverse order through the table,
         substring += words[1][character_index - 1]                      # adding matching characters to the resulting
-        length -= 1                                                     # list of letters, until length is equal to 0.
+        length -= 1                                                     # string of letters, until length is equal to 0.
         character_index -= 1
                                         
-    return "".join(reversed(substring))                                 # Reverse and join the resulting list.
+    return "".join(reversed(substring))                                 # Reverse and join the resulting substring.
 
 
 def print_table(table, rows, cols):
