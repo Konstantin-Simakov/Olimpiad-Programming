@@ -2,7 +2,6 @@
 # Finding the longest common substring.
 
 
-# ???
 def get_table(words):
     """ Construct and get the memoization table. """
     rows = len(words[0]) + 1                                            # For correct construction of the memoization table.
