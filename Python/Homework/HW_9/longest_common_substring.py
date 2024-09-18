@@ -37,8 +37,8 @@ def get_longest_substring(words, table):
     # Construct the max substring.
     substring = ""
     while length > 0:                                                   # Going in reverse order through the table,
-        substring += words[1][character_index - 1]                      # adding matching characters to the resulting
-        length -= 1                                                     # string of letters, until length is equal to 0.
+        substring += words[1][character_index - 1]                      # adding matching characters to the resulting string,
+        length -= 1                                                     # until length is equal to 0.
         character_index -= 1
                                         
     return "".join(reversed(substring))                                 # Reverse and join the resulting substring.
