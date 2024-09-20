@@ -9,7 +9,7 @@ void to_bin(int num);
 int builtin_clz(int num);           // The number of leading zeroes in BIN.
 int builtin_ctz(int num);           // The number of ending zeroes in BIN.
 int builtin_popcount(int num);      // The number of ones in BIN.
-bool builtin_parity(int num);       // Odd/even number of ones in BIN.
+bool builtin_parity(int num);       // Parity of ones in BIN.
 
 int main(void)
 {
