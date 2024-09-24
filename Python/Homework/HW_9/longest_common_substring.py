@@ -11,8 +11,8 @@ def get_table(words):
     print_table(table, rows, cols)                                      # Then display it.
 
     # Initialize it.
-    for row in range(rows - 1):
-        for col in range(cols - 1):
+    for row in range(rows-1):
+        for col in range(cols-1):
             if words[0][row] == words[1][col]:                          # If letters in words match, update the current
                 table[row+1][col+1] = table[row][col] + 1               # length of substring.
 
