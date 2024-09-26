@@ -43,7 +43,7 @@ def calc_distance(learnt_example, test_example):
     """ Calculate distance between learnt example and test example. """
     # Using Euclidean distance.
     res = 0
-    # Begin from 1 because by 0 index is the element name name.
+    # Begin from 1 because by 0 index it is the element name.
     for i in range(1, len(learnt_example)):
         res += (learnt_example[i] - test_example[i]) ** 2
         # print(res)
