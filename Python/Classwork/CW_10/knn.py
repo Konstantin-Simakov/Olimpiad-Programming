@@ -127,6 +127,6 @@ def main():
 
 
 # Global scope.
-if __name__ == '__main__':
+if "__main__" == __name__:
     main()
 input("\n\nPress the key <Enter> to exit.")
