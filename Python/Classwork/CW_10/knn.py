@@ -103,7 +103,7 @@ def main():
     # From 1 to 5 by size and color -- orange,
     # from 6 to 10 by size and color -- grapefruit.
     SOURCE_DATA = (
-        # Fruit name, size, color.
+        # Element name, size, color.
         ("O", 1, 1),                    # Oranges.
         ("O", 2, 2),
         ("O", 3, 3),
