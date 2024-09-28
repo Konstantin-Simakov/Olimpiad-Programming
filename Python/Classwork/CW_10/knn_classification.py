@@ -123,7 +123,7 @@ def main():
     test_example = (element_name,) + test_example[1:]
     
     # Display results.
-    fruit_name = "orange" if "O" == element_name else "grapefruit"
+    fruit_name = "orange" if "O" == test_example[0] else "grapefruit"
     print("The test example is ", fruit_name, ".", sep="")
 
 
