@@ -27,11 +27,22 @@ def selection_sort(arr):
 	return new_arr
 
 
+def selection_sort_2(arr):
+	""" 2nd version of sorting without additional array. """
+	for i in range(len(arr)):
+		lowest_val_index = i
+		for j in range(i+1, len(arr)):
+			if arr[j] < arr[lowest_val_index]:
+				lowest_val_index = j
+
+		# It's allowed, e.g. 'a, a = 6, 6' and '6 == a' after it without problems.
+		arr[i], arr[lowest_val_index] = arr[lowest_val_index], arr[i]
+
+	return arr
+
+
 # Own code.
-start = time.time()				# Begin measure.
-
-print(selection_sort([5, 3, 6, 2, 10]))
-
-end = time.time() - start		# End measure.
-print(end * 1000)				# Output of results.
-# print(arr)
+start = time.time()					# Begin measure.
+print(selection_sort_2([10, 5, 2, 3]))
+end = time.time() - start			# End measure.
+print(end * 1000)					# Output of results in ms.

@@ -45,10 +45,9 @@ def calc_distance(learnt_example, test_example):
     """ Calculate distance between learnt example and test example. """
     # Using Euclidean distance.
     res = 0
-    # Begin from 1 because by 0 index is the element name name.
+    # Begin from 1 because by 0 index is the element name.
     for i in range(1, len(learnt_example)):
         res += (learnt_example[i] - test_example[i]) ** 2
-        # print(res)
     res = math.sqrt(res)
 
     return res
@@ -58,13 +57,14 @@ def sort_data(distances, source_data):
     """ Sort distances and source data by the common for distances condition. """
     # Sort with modified bubble sorting algorithm by ascending order (from min to max).
     LEN_DISTANCES = len(distances)
-    for i in range(LEN_DISTANCES-1):
-        for j in range(LEN_DISTANCES-1-i):
+    for i in range(LEN_DISTANCES):
+        for j in range(LEN_DISTANCES-1):
             if distances[j] > distances[j+1]:
                 # Swap.
                 distances[j], distances[j+1] = distances[j+1], distances[j]
                 source_data[j], source_data[j+1] = source_data[j+1], source_data[j]
 
+    # Check the calculations.
     print(distances)
     print(source_data)
 

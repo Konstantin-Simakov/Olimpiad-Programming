@@ -44,30 +44,51 @@ def knn_regressor(source_data, test_example):
     return element_value
 
 
+# def calc_distance(learnt_example, test_example):
+#     """ Calculate distance between learnt example and test example. """
+#     # Using Euclidean distance.
+#     res = 0
+#     # Begin from 1 because by 0 index is the element name.
+#     for i in range(1, len(learnt_example)):
+#         res += (learnt_example[i] - test_example[i]) ** 2
+#     res = math.sqrt(res)
+
+#     return res
+
+
 def calc_distance(learnt_example, test_example):
     """ Calculate distance between learnt example and test example. """
-    # Using Euclidean distance.
-    res = 0
-    # Begin from 1 because by 0 index is the element name name.
-    for i in range(1, len(learnt_example)):
-        res += (learnt_example[i] - test_example[i]) ** 2
-        # print(res)
-    res = math.sqrt(res)
+    # Using proximity cosines.
+    scalar_product, norm_learnt, norm_test = 0, 0, 0 
 
-    return res
+    # Begin from 1 because by 0 index is the element name.
+    for i in range(1, len(learnt_example)):
+        scalar_product += learnt_example[i] * test_example[i]
+        norm_learnt += learnt_example[i] ** 2
+        norm_test += test_example[i] ** 2
+
+    scalar_product = math.sqrt(scalar_product)
+    norm_learnt = math.sqrt(norm_learnt)
+    norm_test = math.sqrt(norm_test)
+
+    return scalar_product / (norm_learnt * norm_test)
 
 
 def sort_data(distances, source_data):
     """ Sort distances and source data by the common for distances condition. """
-    # Sort with modified bubble sorting algorithm by ascending order (from min to max).
+    # Sort with modified and improved bubble sorting algorithm by ascending order (from min to max).
     LEN_DISTANCES = len(distances)
-    for i in range(LEN_DISTANCES-1):
-        for j in range(LEN_DISTANCES-1-i):
+    did_swap = True
+    while did_swap:
+        did_swap = False
+        for j in range(LEN_DISTANCES-1):
             if distances[j] > distances[j+1]:
                 # Swap.
                 distances[j], distances[j+1] = distances[j+1], distances[j]
                 source_data[j], source_data[j+1] = source_data[j+1], source_data[j]
-
+                did_swap = True
+    
+    # Check the calculations.
     print(distances)
     print(source_data)
 
@@ -100,7 +121,6 @@ def main():
     # 3. 'is_celebrating' is measured by True or False;
     # 4. 'is_competition' is measured by True or False;
     SOURCE_DATA = (
-        # Element name, size, color.
         (300, 5, True, False),
         (225, 3, True, True),
         (75, 1, True, False),
@@ -117,7 +137,7 @@ def main():
     
     # Display results.
     loaves_of_bread = test_example[0]
-    print("The amount of bread to bake equals", loaves_of_bread, "breads.")
+    print("The amount of bread loaves to bake equals ", loaves_of_bread, ".", sep="")
 
 
 # Global scope.
