@@ -106,7 +106,7 @@ void display_bitset(const bitset<10> & bs)
     {
         cout << "{";
         for (int i = 0; i < 10; ++i)
-            if (1 == bs[i])
+            if (bs[i])
                 cout << i << ", ";
         cout << "\b\b}\n";
 
