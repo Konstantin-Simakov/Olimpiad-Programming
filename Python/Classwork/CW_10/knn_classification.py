@@ -1,11 +1,13 @@
 # knn_classification.py
 # 
-# Simple implementation of k nearest neighbors (kNN) algorithm.
+# Simple implementation of k nearest neighbors (kNN) algorithm for classification.
+# 
 # Source data: oranges and grapefruits.
 # Properties (2): size, color (on a conventional scale from 1 to 10).
-# This solution consists of simpler and more convenient code, 
+# 
+# This solution consists of simpler and more convenient code than some others, 
 # since it doesn't contain a large number of external libraries.
-# Also, it doesn't use OOP; only functions for more convinience.
+# Also, it uses only function way without more difficult OOP.
 # 
 
 import math

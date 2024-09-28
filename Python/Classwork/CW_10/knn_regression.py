@@ -1,11 +1,16 @@
 # knn_regression.py
 # 
-# Simple implementation of k nearest neighbors (kNN) algorithm.
-# Source data: oranges and grapefruits.
-# Properties (2): size, color (on a conventional scale from 1 to 10).
-# This solution consists of simpler and more convenient code, 
+# Simple implementation of k nearest neighbors (kNN) algorithm for regression.
+# 
+# Source data: days separated by signs and loaves of bread to bake in the corresponding day.
+# Properties (3): weather level from 1 (awful) to 5 (excellent), integer; 
+# is celebrating today or not: True (yes) or False (no),
+# is competition today or not: True (yes) or False (no).
+# Target value is a number of bread loaves to bake in the corresponding day.
+# 
+# This solution consists of simpler and more convenient code than some others, 
 # since it doesn't contain a large number of external libraries.
-# Also, it doesn't use OOP; only functions for more convinience.
+# Also, it uses only function way without more difficult OOP.
 # 
 
 import math
@@ -93,7 +98,7 @@ def main():
     # 1. 'loaves_of_bread' is the amount of bread to bake.
     # 2. 'weather' is measured from 1 to 5 by integers;
     # 3. 'is_celebrating' is measured by True or False;
-    # 4. 'is_competitions' is measured by True or False;
+    # 4. 'is_competition' is measured by True or False;
     SOURCE_DATA = (
         # Element name, size, color.
         (300, 5, True, False),
