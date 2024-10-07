@@ -2,6 +2,7 @@
 // Search for the max sum of a subarray in the array.
 #include <iostream>
 #include <algorithm>        // For max()
+#include <climits>          // For INT_MIN
 using namespace std;
 
 int max_subarray_1(const int arr[], int n);
@@ -11,7 +12,7 @@ int max_subarray_3(const int arr[], int n);
 int main(void)
 {
     const int N = 5;
-    int arr[N] = {-1, 2, -1, 4, 5};
+    int arr[N] = {-10, -9, -6, -8, -5};
 
     cout << max_subarray_1(arr, N) << endl;
     cout << max_subarray_2(arr, N) << endl;
@@ -22,7 +23,7 @@ int main(void)
 
 int max_subarray_1(const int arr[], int n)
 {
-    int best = 0;
+    int best = INT_MIN;
     for (int a = 0; a < n; ++a)                 // Left side of a subarray.
     {
         for (int b = a; b < n; ++b)             // Rigth side of a subarray.
@@ -31,7 +32,7 @@ int max_subarray_1(const int arr[], int n)
             int sum = 0;                    
             for (int k = a; k <= b; ++k)
                 sum += arr[k];
-            best = max(best, sum);
+            best = std::max(best, sum);
         }
     }
 
@@ -40,7 +41,7 @@ int max_subarray_1(const int arr[], int n)
 
 int max_subarray_2(const int arr[], int n)
 {
-    int best = 0;
+    int best = INT_MIN;
     for (int a = 0; a < n; ++a)                 // Left side of a subarray.
     {
         // Calculate the max sum of a subarray while 
@@ -49,7 +50,7 @@ int max_subarray_2(const int arr[], int n)
         for (int b = a; b < n; ++b)
         {
             sum += arr[b];
-            best = max(best, sum);
+            best = std::max(best, sum);
         }
     }
 
@@ -58,11 +59,11 @@ int max_subarray_2(const int arr[], int n)
 
 int max_subarray_3(const int arr[], int n)
 {
-    int best = 0, sum = 0;
+    int best = INT_MIN, sum = 0;
     for (int k = 0; k < n; ++k)
     {
-        sum = max(arr[k], sum + arr[k]);
-        best = max(best, sum);
+        sum = std::max(arr[k], sum + arr[k]);
+        best = std::max(best, sum);
     }
 
     return best;
