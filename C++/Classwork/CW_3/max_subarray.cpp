@@ -1,7 +1,7 @@
 // max_subarray.cpp
 // Search for the max sum of a subarray in the array.
 #include <iostream>
-#include <algorithm>        // For max()
+#include <algorithm>        // For std::max()
 #include <climits>          // For INT_MIN
 using namespace std;
 
