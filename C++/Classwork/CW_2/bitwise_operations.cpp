@@ -9,6 +9,7 @@ void to_bin(int num);
 int builtin_clz(int num);           // The number of leading zeroes in BIN.
 int builtin_ctz(int num);           // The number of ending zeroes in BIN.
 int builtin_popcount(int num);      // The number of ones in BIN.
+int builtin_popcount_2(int num);    // The number of ones in BIN (improved).
 bool builtin_parity(int num);       // Parity of ones in BIN.
 
 int main(void)
@@ -86,6 +87,8 @@ int main(void)
          << __builtin_popcount(num) << endl;
     cout << "The number of ones in binary representation (my version): "
          << builtin_popcount(num) << endl;
+    cout << "The number of ones in binary representation (my improved version): "
+         << builtin_popcount_2(num) << endl;
     cout << "The number of ones in binary representation is ";
     if (__builtin_parity(num))
         cout << "odd.\n";
@@ -155,6 +158,18 @@ int builtin_popcount(int num)
     return count;
 }
 
+int builtin_popcount_2(int num)
+{
+    int count = 0;
+    while (num)
+    {
+        count += num & 1;
+        num >>= 1;
+    }
+
+    return count;
+}
+
 bool builtin_parity(int num)
 {
     enum Parity {EVEN, ODD};
@@ -167,4 +182,3 @@ bool builtin_parity(int num)
 
     return parity;
 }
-
