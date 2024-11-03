@@ -44,34 +44,23 @@ def knn_regressor(source_data, test_example):
     return element_value
 
 
-# def calc_distance(learnt_example, test_example):
-#     """ Calculate distance between learnt example and test example. """
-#     # Using Euclidean distance.
-#     res = 0
-#     # Begin from 1 because by 0 index is the element name.
-#     for i in range(1, len(learnt_example)):
-#         res += (learnt_example[i] - test_example[i]) ** 2
-#     res = math.sqrt(res)
-
-#     return res
-
-
 def calc_distance(learnt_example, test_example):
-    """ Calculate distance between learnt example and test example. """
-    # Using proximity cosines.
+    """ 
+    Calculate distance between learnt example and test example 
+    using cosine distance. 
+    """
     scalar_product, norm_learnt, norm_test = 0, 0, 0 
 
-    # Begin from 1 because by 0 index is the element name.
+    # Begin from 1 because by 0 index is the element value.
     for i in range(1, len(learnt_example)):
         scalar_product += learnt_example[i] * test_example[i]
         norm_learnt += learnt_example[i] ** 2
         norm_test += test_example[i] ** 2
 
-    scalar_product = math.sqrt(scalar_product)
     norm_learnt = math.sqrt(norm_learnt)
     norm_test = math.sqrt(norm_test)
 
-    return scalar_product / (norm_learnt * norm_test)
+    return 1.0 - scalar_product / (norm_learnt * norm_test)
 
 
 def sort_data(distances, source_data):

@@ -34,7 +34,7 @@ def knn_classifier(source_data, test_example):
     source_data = list(source_data[:])
     distances, source_data = sort_data(distances, source_data)
 
-    # Choose 'neighbour' neighbors and calculate mode of them.
+    # Choose 'neighbours' neighbors and calculate mode of them.
     sample = source_data[:neighbors]
     element_name = calc_mode(sample)
 
@@ -42,8 +42,10 @@ def knn_classifier(source_data, test_example):
 
 
 def calc_distance(learnt_example, test_example):
-    """ Calculate distance between learnt example and test example. """
-    # Using Euclidean distance.
+    """ 
+    Distance between learnt example and test example is calculated using the Euclidean distance formula. 
+    It's assumed that the Euclidean distance calculation is applied to already normalized data.
+    """
     res = 0
     # Begin from 1 because by 0 index is the element name.
     for i in range(1, len(learnt_example)):
@@ -121,7 +123,7 @@ def main():
     test_example = (None, 6, 7)
     element_name = knn_classifier(SOURCE_DATA, test_example)
     test_example = (element_name,) + test_example[1:]
-    
+
     # Display results.
     fruit_name = "orange" if "O" == test_example[0] else "grapefruit"
     print("The test example is ", fruit_name, ".", sep="")
@@ -130,4 +132,4 @@ def main():
 # Global scope.
 if "__main__" == __name__:
     main()
-input("\n\nPress the key <Enter> to exit.")
+    input("\n\nPress the key <Enter> to exit.")
