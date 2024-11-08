@@ -29,7 +29,7 @@ long long factorial_2(int n)
 {
     long long fact_odd = 1;
     long long fact_even = 1;
-    for (int i = 1; i <= n; i += 2)
+    for (int i = 1; i <= n; i += 2)     // It's supposed that n is even.
     {
         fact_odd *= i;
         fact_even *= i + 1;
