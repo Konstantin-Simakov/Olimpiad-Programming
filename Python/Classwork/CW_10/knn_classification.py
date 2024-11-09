@@ -32,7 +32,7 @@ def knn_classifier(source_data, test_example):
 
     # Calculate neighbors.
     source_data = list(source_data[:])
-    distances, source_data = sort_data(distances, source_data)
+    source_data = sort_data(distances, source_data)
 
     # Choose 'neighbours' neighbors and calculate mode of them.
     sample = source_data[:neighbors]
@@ -70,7 +70,7 @@ def sort_data(distances, source_data):
     print(distances)
     print(source_data)
 
-    return distances, source_data
+    return source_data
 
 
 def calc_mode(sample):

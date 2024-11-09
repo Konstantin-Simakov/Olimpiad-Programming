@@ -35,7 +35,7 @@ def knn_regressor(source_data, test_example):
 
     # Calculate neighbors.
     source_data = list(source_data[:])
-    distances, source_data = sort_data(distances, source_data)
+    source_data = sort_data(distances, source_data)
 
     # Choose 'neighbour' neighbors and calculate average of them.
     sample = source_data[:neighbors]
@@ -81,7 +81,7 @@ def sort_data(distances, source_data):
     print(distances)
     print(source_data)
 
-    return distances, source_data
+    return source_data
 
 
 def calc_average(sample):
