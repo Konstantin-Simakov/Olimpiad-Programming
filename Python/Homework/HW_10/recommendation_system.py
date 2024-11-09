@@ -3,7 +3,7 @@
 
 import math
 
-def knn_classifier(source_data, test_example):
+def knn_algorithm(source_data, test_example):
     
     LEN_SOURCE_DATA = len(source_data)
 
@@ -17,17 +17,18 @@ def knn_classifier(source_data, test_example):
         distances.append(distance)
 
     source_data = list(source_data[:])
-    sorted_source_data, sorted_distances = sort_data(distances, source_data)
+    sorted_source_data = sort_data(distances, source_data)
     sample = sorted_source_data[:neighbors]
 
     return sample
 
 
 def calc_distances(learnt_example, test_example):
-    """Calculate distance between learnt example and test example, using cosine's proximity."""
-    scalar_product = 0
-    norm_learnt = 0
-    norm_test = 0
+    """ 
+    Calculate distance between learnt example and test example 
+    using cosine distance. 
+    """
+    scalar_product, norm_learnt, norm_test = 0, 0, 0
 
     # Begin from 1 because 0 index is the element value.
     for i in range(1, len(learnt_example)):
@@ -48,16 +49,16 @@ def sort_data(distances, source_data):
     did_swap = True
     while did_swap:
         did_swap = False
-        for i in range(LEN_DISTANCES - 1):
-            if distances[i] > distances[i + 1]:
-                distances[i], distances[i + 1] = distances[i + 1], distances[i]
-                source_data[i], source_data[i + 1] = source_data[i + 1], source_data[i]
+        for i in range(LEN_DISTANCES-1):
+            if distances[i] > distances[i+1]:
+                distances[i], distances[i+1] = distances[i+1], distances[i]
+                source_data[i], source_data[i+1] = source_data[i+1], source_data[i]
                 did_swap = True
 
     print(distances)
     print(source_data)
 
-    return source_data, distances
+    return source_data
 
 
 def print_sample(sample):
@@ -87,7 +88,7 @@ def main():
     }
 
     test_example = ("Ivan", 3, 2, 5, 1, 3)
-    nearest_neighbors = knn_classifier(SOURCE_DATA, test_example)
+    nearest_neighbors = knn_algorithm(SOURCE_DATA, test_example)
     
     print("\nNearest neighbors:")
     for elem in nearest_neighbors:
@@ -108,6 +109,6 @@ def main():
 
 
 # Global scope.
-if __name__ == "__main__":
+if "__main__" == __name__:
     main()
     input("\nPress the <Enter> key to exit.")
