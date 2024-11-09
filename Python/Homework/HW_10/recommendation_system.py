@@ -3,6 +3,7 @@
 
 import math
 
+
 def knn_algorithm(source_data, test_example):
     
     LEN_SOURCE_DATA = len(source_data)
