@@ -9,14 +9,14 @@ void bubble_sort(vector<int> & data);
 void bubble_sort_2(vector<int> & data);                 // Improved version.
 void merge_sort(vector<int> & data, int l, int r);      // l -- left index, r -- rigth index of the subarray.
 void merge(vector<int> & data, int l, int m, int r);    // l -- left index, r -- rigth index of the subarray.
+void counting_sort(char * str);                         // Sort a string in alphabetic order; only for C strings.
 void swap_int(int & a, int & b);                        // Swap two integers.
 void display(const vector<int> & data);
 
 int main(void)
 {
     vector<int> data = {1, -2, 2, 6, 3, 5, 9, 8};
-
-    cout << "Source array:\n";
+    cout << "Source data:\n";
     display(data);
 
     bubble_sort(data);
@@ -39,6 +39,12 @@ int main(void)
     merge_sort(data, 0, data.size() - 1);
     cout << "Again sorted data by merge sorting:\n";
     display(data);
+
+    // Sort the string by counting sorting in alphabetical order.
+    char str[] = "Hello, dear friend!";
+    cout << "\nSource string: " << str << endl;
+    counting_sort(str);
+    cout << "Sorted string: " << str << endl;
 
     return 0;
 }
@@ -138,6 +144,22 @@ void merge(vector<int> & data, int l, int m, int r)
     }
 }
 
+void counting_sort(char * str)
+{ 
+    const int RANGE = 256;      // The number of characters according to extended ASCII code.
+    int cnt[RANGE] = {0};       // Auxiliary array for counting the elements of the original array.
+    int i, j, c;
+    
+    // Store count of an each input character.
+    for(i = 0; str[i]; ++i)
+        ++cnt[(int) str[i]];
+    
+    // Sort string by alphabetic order.
+    for (i = 0, j = 0; j < RANGE; ++j)
+        for (c = 0; c < cnt[j]; ++c)
+            str[i++] = j;       // Place the character 'j' into the string 'str'.
+}
+
 void display(const vector<int> & data)
 {
     const int SIZE = data.size();
@@ -148,7 +170,11 @@ void display(const vector<int> & data)
 
 void swap_int(int & a, int & b)
 {
-    a += b;
-    b = a - b;
-    a -= b;
+    int temp = a;
+    a = b;
+    b = temp;
+
+    // a += b;
+    // b = a - b;
+    // a -= b;
 }
