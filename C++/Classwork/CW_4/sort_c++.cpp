@@ -66,7 +66,7 @@ void display(const vector<int> & vec)
 
 void display(int * start, const int * end)
 {
-    while (start != end)
+    while (start < end)
         cout << *start++ << ' ';
     cout << endl;
 }
