@@ -15,7 +15,7 @@ void display(const vector<int> & data);
 
 int main(void)
 {
-    vector<int> data = {1, -2, 2, 6, 3, 5, 9, 8};
+    vector<int> data = {1, -2, 2, 6, 3, 5, 9, 8, -1};
     cout << "Source data:\n";
     display(data);
 
@@ -57,7 +57,7 @@ void bubble_sort(vector<int> & data)
         for (int j = 0; j < SIZE - 1; ++j)
         {
             if (data[j] > data[j + 1])
-                swap(data[j], data[j + 1]);
+                std::swap(data[j], data[j + 1]);
         }
     }
 }
@@ -65,7 +65,7 @@ void bubble_sort(vector<int> & data)
 void bubble_sort_2(vector<int> & data)
 {
     const int SIZE = data.size();
-    for (int i = 0; i < SIZE; ++i)
+    for (int i = 0; i < SIZE - 1; ++i)
     {
         bool did_swap = false;
         for (int j = 0; j < SIZE - 1 - i; ++j)
@@ -170,11 +170,11 @@ void display(const vector<int> & data)
 
 void swap_int(int & a, int & b)
 {
-    int temp = a;
-    a = b;
-    b = temp;
+    // int temp = a;
+    // a = b;
+    // b = temp;
 
-    // a += b;
-    // b = a - b;
-    // a -= b;
+    a += b;
+    b = a - b;
+    a -= b;
 }
