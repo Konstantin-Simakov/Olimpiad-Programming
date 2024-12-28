@@ -4,6 +4,8 @@
 #include <vector>
 #include <tuple>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class Point {
@@ -44,6 +46,7 @@ int main(void)
     display(vec);
 
     cout << "\nSorted vector by descending:\n";
+    srand(time(0));
     std::random_shuffle(vec.begin(), vec.end());
     std::sort(vec.rbegin(), vec.rend());
     display(vec);
