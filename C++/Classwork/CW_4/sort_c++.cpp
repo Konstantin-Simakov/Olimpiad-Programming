@@ -27,7 +27,7 @@ void display(const vector<int> & vec);
 void display(const vector<pair<int, int>> & vp);
 void display(const vector<tuple<int, int, int>> & vt);
 void display(const vector<Point> & vpt);
-void display(int * start, const int * end);
+void display(const int * start, const int * const end);
 void display(const string & str);
 void display(const vector<string> vs);
 bool comp(const string & s1, const string & s2);
@@ -119,7 +119,7 @@ int main(void)
     vs.push_back("some string");
     vs.push_back("some a bit string");
     vs.push_back("big strings");
-    vs.push_back("too big and big string");
+    vs.push_back("a big and big string");
     cout << "\nSource vector of strings:\n";
     display(vs);
 
@@ -159,7 +159,7 @@ ostream & operator<<(ostream & os, const Point & p)
 
 void display(const vector<int> & vec)
 {
-    for (const auto & item: vec)
+    for (auto item: vec)
         cout << item << ' ';
     cout << endl;
 }
@@ -176,7 +176,7 @@ void display(const vector<tuple<int, int, int>> & vt)
         cout << std::get<0>(item) << ' ' << std::get<1>(item) << ' ' << std::get<2>(item) << endl;
 }
 
-void display(int * start, const int * end)
+void display(const int * start, const int * const end)
 {
     while (start < end)
         cout << *start++ << ' ';
