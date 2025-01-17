@@ -32,12 +32,18 @@ bool is_unique(const vector<int> & vec, int n)
     // Compare all possible pairs of elements in the array.
     bool all_is_unique = true;
     for (int i = 0; i < n; ++i)
+    {
         for (int j = i + 1; j < n; ++j)
+        {
             if (vec[i] == vec[j])
             {
                 all_is_unique = false;
                 break;
-            }
+            }            
+        }
+        if (!all_is_unique)
+            break;
+    }
 
     return all_is_unique;
 }
