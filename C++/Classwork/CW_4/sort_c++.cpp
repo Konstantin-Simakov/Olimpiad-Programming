@@ -31,7 +31,7 @@ void display(const vector<tuple<int, int, int>> & vt);
 void display(const vector<Point> & vpt);
 void display(const int * start, const int * const end);
 void display(const string & str);
-void display(const vector<string> vs);
+void display(const vector<string> & vs);
 bool comp(const string & s1, const string & s2);
 
 int main(void)
@@ -133,7 +133,7 @@ int main(void)
     return 0;
 }
 
-void display(const vector<string> vs)
+void display(const vector<string> & vs)
 {
     for (const auto & item: vs)
         cout << item << endl;
