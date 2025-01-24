@@ -67,7 +67,7 @@ bool comp(const tuple<char, int, int> & t1, const tuple<char, int, int> & t2)
 
 void display(const vector<tuple<char, int, int>> & vt)
 {
-    cout << setw(15) << "Name" << setw(15) << "Duration" << setw(15) << "Deadline" << endl;
+    cout << setw(15) << "Work name" << setw(15) << "Duration" << setw(15) << "Deadline" << endl;
     for (const auto & item: vt)
         cout << setw(15) << std::get<0>(item) << setw(15) << std::get<1>(item) << setw(15) << std::get<2>(item) << endl;
 }
