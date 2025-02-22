@@ -9,8 +9,8 @@ int bin_search(const int arr[], int n, int x);
 int main(void)
 {
     const int SIZE = 5;
-    int arr[SIZE] = {-1, 2, 3, 4, 5};
-    int value = 3;          // Element to search.
+    int arr[SIZE] = {-1, 2, 3, 4, 5};   // The array must be sorted previously.
+    int value = 3;                      // Element to search.
 
     int index = bin_search(arr, SIZE, value);
     if (-1 == index)
@@ -33,7 +33,7 @@ int bin_search(const int arr[], int n, int x)
             i = k;
             break;
         }
-        else if (arr[x] < x)
+        else if (arr[k] < x)
             a = k + 1;
         else
             b = k - 1;

@@ -9,8 +9,8 @@ int bin_search(const int arr[], int n, int x);
 int main(void)
 {
     const int SIZE = 5;
-    int arr[SIZE] = {-1, 2, 3, 4, 5};
-    int value = 3;      // Element to search.
+    int arr[SIZE] = {-1, 2, 3, 4, 5};   // The array must be sorted previously.
+    int value = 3;                      // Element to search.
 
     int index = bin_search(arr, SIZE, value);
     if (-1 == index)
@@ -24,8 +24,10 @@ int main(void)
 int bin_search(const int arr[], int n, int x)
 {
     int k = 0;
+    // b is the length of the current jump.
     for (int b = n / 2; b >= 1; b /= 2)
     {
+        // Inside 'while' loop executes not more than 2 times.
         while (k + b < n && arr[k + b] <= x)
             k += b;
     }
