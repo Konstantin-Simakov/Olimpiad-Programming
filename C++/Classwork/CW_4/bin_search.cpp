@@ -17,8 +17,7 @@ int main(void)
     // The processing time of each machine, 
     // the number of which is equal to the size of the array.
     vector<int> machines = {2, 3, 7}; 
-    // The number of tasks for machines; 
-    // k > size else the problem has no point.
+    // The number of tasks for machines.
     int tasks = 8;        
 
     int min_time_proc = bin_search(machines, tasks);
