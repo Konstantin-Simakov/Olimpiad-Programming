@@ -9,7 +9,7 @@
 using namespace std;
 
 int bin_search(const vector<int> & machines, int tasks);
-// max_time is the current max time of task processing.
+// max_time is the current max time for processing all tasks.
 bool valid(int max_time, const vector<int> & machines, int tasks);
 
 int main(void)
