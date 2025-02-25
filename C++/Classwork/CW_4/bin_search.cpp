@@ -9,15 +9,15 @@
 using namespace std;
 
 int bin_search(const vector<int> & machines, int tasks);
-// max_time is the current max time for processing all tasks.
-bool valid(int max_time, const vector<int> & machines, int tasks);
+// deadline is the current deadline time for processing all tasks.
+bool valid(int deadline, const vector<int> & machines, int tasks);
 
 int main(void)
 {
     // The processing time of each machine, 
     // the number of which is equal to the size of the array.
     vector<int> machines = {2, 3, 7}; 
-    // The number of tasks for machines.
+    // The number of tasks for machines; 
     int tasks = 8;        
 
     int min_time_proc = bin_search(machines, tasks);
@@ -39,13 +39,13 @@ int bin_search(const vector<int> & machines, int tasks)
     return t + 1;                       // The minimum time when valid() is true.           
 }
 
-bool valid(int max_time, const vector<int> & machines, int tasks)
+bool valid(int deadline, const vector<int> & machines, int tasks)
 {
     bool ret_val;
     int total_tasks = 0;
 
     for (unsigned i = 0; i < machines.size(); ++i)
-        total_tasks += max_time / machines[i];
+        total_tasks += deadline / machines[i];
 
     if (total_tasks >= tasks)
         ret_val = true;
