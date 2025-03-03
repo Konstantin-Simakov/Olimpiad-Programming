@@ -9,7 +9,8 @@
 using namespace std;
 
 int bin_search(const vector<int> & machines, int tasks);
-// deadline is the current deadline time for processing all tasks.
+// The function determines whether the current solution (deadline) is acceptable (true) or not (false);
+// 'deadline' is the current deadline time for processing all tasks.
 bool valid(int deadline, const vector<int> & machines, int tasks);
 
 int main(void)
@@ -32,10 +33,13 @@ int bin_search(const vector<int> & machines, int tasks)
     int t = -1;                         // The target value of time.
     for (int b = upper; b >= 1; b /= 2)
     {
+        // While the solution to the problem is unacceptable, 
+        // look for the maximum unacceptable solution to the problem.
         while (!valid(t + b, machines, tasks))
             t += b;
     }
 
+    // Then the next solution will be the minimum acceptable solution (optimum).
     return t + 1;                       // The minimum time when valid() is true.           
 }
 
