@@ -16,7 +16,7 @@ int main(void)
     display(arr, SIZE);
 
     // Initially the vector is empty with size equalled 0, 
-    // than it's initialized with push_back() method.
+    // then it's initialized with push_back() method.
     vector<int> vec;    
     vec.push_back(3);
     vec.push_back(2);
