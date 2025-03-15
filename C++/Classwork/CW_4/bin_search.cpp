@@ -1,7 +1,7 @@
 // bin_search.cpp
 // 
 // It is necessary to perform k tasks on n machines. 
-// Each machine i is assigned an integer p_i, i.e. the time of execution of one task (machine capacity). 
+// Each machine i is assigned an integer p_i, i.e. the time of execution of one task (ith machine power). 
 // In what minimum time can all tasks be processed?
 //
 #include <iostream>
@@ -31,12 +31,12 @@ int bin_search(const vector<int> & machines, int tasks)
 {
     int upper = tasks * machines[0];    // Upper limit when valid() is true.
     int t = -1;                         // The target value of time.
-    for (int b = upper; b >= 1; b /= 2)
+    for (int j = upper; j >= 1; j /= 2) // j is a time jump.
     {
         // While the solution to the problem is unacceptable, 
         // look for the maximum unacceptable solution to the problem.
-        while (!valid(t + b, machines, tasks))
-            t += b;
+        while (!valid(t + j, machines, tasks))
+            t += j;
     }
 
     // Then the next solution will be the minimum acceptable solution (optimum).
