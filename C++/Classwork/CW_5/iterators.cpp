@@ -30,7 +30,7 @@ int main(void)
     std::sort(vi.begin(), vi.end());
     cout << "\nSorted vector by ascending order again:\n";
     display(vi);
-    // Continiously a vector must be sorted.
+    // Next, work is carried out with the sorted vector.
     auto iter_low = std::lower_bound(vi.begin(), vi.end(), 5);
     auto iter_up = std::upper_bound(vi.begin(), vi.end(), 5);
     cout << "iter_low = " << *iter_low << ", iter_up = " << *iter_up << endl;
