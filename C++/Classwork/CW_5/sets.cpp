@@ -1,5 +1,5 @@
 // sets.cpp
-// Demonstrates working with sets in C++.
+// Demonstrate working with sets in C++.
 #include <iostream>
 #include <set>
 using namespace std;
