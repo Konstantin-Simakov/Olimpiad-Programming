@@ -1,14 +1,15 @@
 // sets.cpp
 // Demonstrate working with sets in C++.
 #include <iostream>
-#include <set>
+#include <set>          // For set and multiset STL classes.
 using namespace std;
 
 void display(const std::set<int> & set);
+void display(const std::multiset<int> & mset);
 
 int main(void)
 {
-    std::set<int> set;
+    std::set<int> set;  // All element are unique in regular set.
     set.insert(3);
     set.insert(3);      // Repeat adding.
     set.insert(3);      // Repeat adding.
@@ -33,6 +34,35 @@ int main(void)
     else
         cout << "The element 6 is not in the set.\n";
 
+    // Sets are ordered, so it could be possible to find min and max elements in them.
+    std::set<int> set_2;
+    set_2.insert(-2);
+    set_2.insert(3);
+    set_2.insert(5);
+    
+    cout << "\nNew set:\n";
+    display(set_2);
+    auto first_elem = set_2.begin();
+    auto last_elem = set_2.end(); --last_elem;
+    cout << "The min element of set_2 is " << *first_elem << endl;
+    cout << "The max element of set_2 is " << *last_elem << endl;
+    cout << "The lower bound of 3 is " << *set_2.lower_bound(3) << endl;    // 3
+    cout << "The upper bound of 3 is " << *set_2.upper_bound(3) << endl;    // 5
+
+    std::multiset<int> mset;    // Not all elements need to be unique.
+    mset.insert(5);
+    mset.insert(5);
+    mset.insert(5);
+    cout << "\nThe multiset:\n";
+    display(mset);
+    cout << "The number of fives is " << mset.count(5) << endl;     // 3
+    
+    mset.erase(mset.find(5));
+    cout << "Now the number of fives is " << mset.count(5) << endl; // 2
+
+    mset.erase(5);         
+    cout << "Now the number of fives is " << mset.count(5) << endl; // 0
+
     return 0;
 }
 
@@ -41,6 +71,15 @@ void display(const std::set<int> & set)
     // Set can be printed only with for-loop-range 
     // because [] operator is forbiden for one.
     for (auto item: set)
+        cout << item << ' ';
+    cout << endl;
+}
+
+void display(const std::multiset<int> & mset)
+{
+    // Set can be printed only with for-loop-range 
+    // because [] operator is forbiden for one.
+    for (auto item: mset)
         cout << item << ' ';
     cout << endl;
 }
