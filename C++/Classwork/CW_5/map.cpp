@@ -13,7 +13,7 @@ int main(void)
     mp["monkey"] = 4;
     mp["banana"] = 3;
     mp["piano"] = 9;
-    cout << "The value of \"banana\" is " << mp["banana"] << endl;      // 3
+    cout << "The value of \"banana\" is " << mp["banana"] << endl;                    // 3
     cout << "And that's all map:\n";
     display(mp);
     mp.erase("banana");
