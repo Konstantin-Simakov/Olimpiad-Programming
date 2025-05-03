@@ -25,6 +25,7 @@ int main(void)
     set.erase(3);       // Repeat deleting.
     set.insert(4);
     cout << "\nThe set now:\n";
+    display(set);
     cout << "The element 3 is " << (set.count(3) ? "" : "not ") << "in the set.\n";
     cout << "The element 4 is " << (set.count(4) ? "" : "not ") << "in the set.\n";
 
@@ -34,11 +35,8 @@ int main(void)
     else
         cout << "The element 6 is not in the set.\n";
 
-    // Sets are ordered, so it could be possible to find min and max elements in them.
-    std::set<int> set_2;
-    set_2.insert(-2);
-    set_2.insert(3);
-    set_2.insert(5);
+    // Set are ordered, so it could be find min and max elements in it.
+    std::set<int> set_2 = {-2, 3, 5};
     
     cout << "\nNew set:\n";
     display(set_2);
