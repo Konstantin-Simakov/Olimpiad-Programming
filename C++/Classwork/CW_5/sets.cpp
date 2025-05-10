@@ -83,7 +83,12 @@ void display(const std::multiset<int> & mset)
 {
     // Set can be printed only with for-loop-range 
     // because [] operator is forbiden for one.
+/*    
     for (auto item: mset)
         cout << item << ' ';
+    cout << endl;
+*/    
+    for (auto iter = mset.begin(); iter != mset.end(); iter++)
+        cout << *iter << ' ';
     cout << endl;
 }
