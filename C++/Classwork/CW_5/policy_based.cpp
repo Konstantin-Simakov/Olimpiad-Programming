@@ -1,5 +1,5 @@
 // policy_based.cpp
-// The program demonstrates policy-based data structure (in particular sets).
+// The program demonstrates policy-based data structure (in particular indexed set).
 #include <iostream>
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
